@@ -27,3 +27,28 @@ class Book(models.Model):
 
     def __str__(self):
         return "[" + str(self.serial_id) + "] " + self.name + " - " + self.name
+
+class BookDepartmentRelation(models.Model):
+    department_code = models.IntegerField(db_column='Department_code', primary_key=True)  # Field name made lowercase.
+
+    class Meta:
+        db_table = 'book department relation'
+
+    def __str__(self):
+        return self.department_code
+
+class BookStudentRelation(models.Model):
+    serial = models.AutoField(db_column='Serial', primary_key=True)  # Field name made lowercase.
+    serial_id = models.IntegerField(db_column='Serial ID')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    roll = models.IntegerField(db_column='Roll', blank=True, null=True)  # Field name made lowercase.
+    date_taken = models.CharField(db_column='Date Taken', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    date_returned = models.CharField(db_column='Date Returned', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    quantity = models.IntegerField(db_column='Quantity')  # Field name made lowercase.
+    status = models.CharField(db_column='Status', max_length=100, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'book student relation'
+    
+    def __str__(self):
+        return Book.name
