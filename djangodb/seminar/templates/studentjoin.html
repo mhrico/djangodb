@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Student Sign Up Area</h1>
+</br>
+    <form>
+        <div class="mb-3">
+            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Roll">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Name">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Contact Number">
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email Address">
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign In</button>
+      </form>
+
+{% endblock %}
