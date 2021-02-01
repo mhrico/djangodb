@@ -1,0 +1,10 @@
+CREATE TABLE `Book student Relation` (
+  `Serial` int NOT NULL AUTO_INCREMENT,
+  `Serial ID` int NOT NULL ,
+  `Roll` int ,
+  `Date Taken` Varchar(10),
+  `Date Returned` Varchar(10),
+  `Quantity` Integer NOT NULL,
+  `Status` Varchar(100),
+  PRIMARY KEY (Serial)
+);

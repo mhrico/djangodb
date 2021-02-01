@@ -1,0 +1,4 @@
+CREATE TABLE `Book Department Relation` (
+  `Department_code` INT NOT NULL,
+  PRIMARY KEY (Department_code)
+);
