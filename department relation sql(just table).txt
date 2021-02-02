@@ -1,4 +1,4 @@
-CREATE TABLE `Book Department Relation` (
+CREATE TABLE `Book_Department_Relation` (
   `Department_code` INT NOT NULL,
   PRIMARY KEY (Department_code)
 );

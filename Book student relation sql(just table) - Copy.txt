@@ -1,10 +1,12 @@
-CREATE TABLE `Book loan` (
+CREATE TABLE `Book_Student_Relation` (
   `Serial` int NOT NULL AUTO_INCREMENT,
-  `Serial ID` int NOT NULL ,
+  `Book_Serial` int NOT NULL ,
   `Roll` int ,
-  `Date Taken` Varchar(10),
-  `Date Returned` Varchar(10),
+  `Date_Taken` Varchar(10),
+  `Date_Returned` Varchar(10),
   `Quantity` Integer NOT NULL,
   `Status` Varchar(100),
-  PRIMARY KEY (Serial)
+  PRIMARY KEY (Serial),
+  FOREIGN KEY (Roll) REFERENCES Student(Roll),
+  FOREIGN KEY (Book_Serial) REFERENCES Books(Book_Serial)
 );

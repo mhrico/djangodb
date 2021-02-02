@@ -1,9 +1,10 @@
 CREATE TABLE IF NOT EXISTS `Books` (
-`Serial_ID` INT NOT NULL,
+`Book_Serial` INT NOT NULL,
 `Name` VARCHAR(500) NOT NULL,
 `Authors` VARCHAR(500) NOT NULL,
-`Department Code` INT NOT NULL,
-PRIMARY KEY (Serial_ID)
+`Department_Code` INT NOT NULL,
+PRIMARY KEY (Book_Serial),
+FOREIGN KEY (Department_Code) REFERENCES Book_Department_Relation(Department_code)
 );
 
 INSERT INTO Books VALUES
