@@ -1,4 +1,7 @@
-CREATE TABLE `Book_Department_Relation` (
-  `Department_code` INT NOT NULL,
-  PRIMARY KEY (Department_code)
+CREATE TABLE `Department` (
+  `DeptCode` INT NOT NULL,
+  PRIMARY KEY (DeptCode)
 );
+
+INSERT INTO Department VALUES
+(76);
