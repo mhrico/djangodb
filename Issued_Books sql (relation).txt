@@ -1,7 +1,7 @@
 CREATE TABLE `Issued_Books` (
   `Serial` int NOT NULL AUTO_INCREMENT,
   `Book_Serial` INT NOT NULL ,
-  `Student_Roll` INT(12) ,
+  `Student_Roll` VARCHAR(12) ,
   `Date_Taken` Varchar(10),
   `Date_Returned` Varchar(10),
   `Quantity` Integer NOT NULL,
