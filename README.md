@@ -6,3 +6,5 @@ pip install -r requirements.txt
   
 Then, to run the app:  
 python manage.py runserver  
+  
+MySQL user name and password is root root by default  
