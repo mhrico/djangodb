@@ -38,8 +38,8 @@ class IssuedBooks(models.Model):
     serial = models.AutoField(db_column='Serial', primary_key=True)  # Field name made lowercase.
     book_serial = models.ForeignKey(Books, models.DO_NOTHING, db_column='Book_Serial')  # Field name made lowercase.
     student_roll = models.ForeignKey('Student', models.DO_NOTHING, db_column='Student_Roll', blank=True, null=True)  # Field name made lowercase.
-    date_taken = models.CharField(db_column='Date_Taken', max_length=10, blank=True, null=True)  # Field name made lowercase.
-    date_returned = models.CharField(db_column='Date_Returned', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    date_taken = models.DateField(db_column='Date_Taken', blank=True, null=True)  # Field name made lowercase.
+    date_returned = models.DateField(db_column='Date_Returned', blank=True, null=True)  # Field name made lowercase.
     quantity = models.IntegerField(db_column='Quantity')  # Field name made lowercase.
     status = models.CharField(db_column='Status', max_length=100, blank=True, null=True)  # Field name made lowercase.
 
@@ -47,4 +47,4 @@ class IssuedBooks(models.Model):
         db_table = 'issued_books'
         verbose_name_plural = "Issued Books"
     def __str__(self):
-        return "[" + str(self.book_serial) + "] " + self.student_roll
+        return str(self.book_serial) + " " + str(self.student_roll)
