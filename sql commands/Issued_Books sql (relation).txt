@@ -4,9 +4,8 @@ CREATE TABLE `Issued_Books` (
   `Student_Roll` VARCHAR(12) ,
   `Date_Taken` DATE,
   `Date_Returned` DATE,
-  `Quantity` Integer NOT NULL,
-  `Status` Varchar(100),
+  `Status` Varchar(50),
   PRIMARY KEY (Serial),
-  FOREIGN KEY (Student_Roll) REFERENCES Student(Roll),
-  FOREIGN KEY (Book_Serial) REFERENCES Books(Book_Serial)
+  FOREIGN KEY (Student_Roll) REFERENCES Requested_books(Roll),
+  FOREIGN KEY (Book_Serial) REFERENCES Requested_books(Book_Serial)
 );

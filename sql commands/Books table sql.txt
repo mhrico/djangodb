@@ -1,8 +1,9 @@
 CREATE TABLE IF NOT EXISTS `Books` (
-`Book_Serial` INT NOT NULL,
+`Book_Serial` int NOT NULL AUTO_INCREMENT,
 `Name` VARCHAR(500) NOT NULL,
 `Authors` VARCHAR(500) NOT NULL,
 `Department_Code` INT NOT NULL,
+`Quantity` INT NULL,
 PRIMARY KEY (Book_Serial),
 FOREIGN KEY (Department_Code) REFERENCES Department(DeptCode)
 );
