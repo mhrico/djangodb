@@ -1,7 +1,7 @@
 CREATE TABLE `Requested_books` (
   `Serial` int NOT NULL AUTO_INCREMENT,
-  `Roll` Varchar(12),
-  `Book_Serial` INT,
+  `Roll` VARCHAR(12) NOT NULL,
+  `Book_Serial` int NOT NULL,
   PRIMARY KEY (`Serial`),
   FOREIGN KEY (Roll) REFERENCES Student(Roll),
   FOREIGN KEY (Book_Serial) REFERENCES Books(Book_Serial)

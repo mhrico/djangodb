@@ -1,11 +1,9 @@
 CREATE TABLE `Issued_Books` (
   `Serial` int NOT NULL AUTO_INCREMENT,
-  `Book_Serial` INT NOT NULL ,
-  `Student_Roll` VARCHAR(12) ,
+  `Requested_Serial` int NOT NULL,
   `Date_Taken` DATE,
   `Date_Returned` DATE,
   `Status` Varchar(50),
   PRIMARY KEY (Serial),
-  FOREIGN KEY (Student_Roll) REFERENCES Requested_books(Roll),
-  FOREIGN KEY (Book_Serial) REFERENCES Requested_books(Book_Serial)
+  FOREIGN KEY (`Requested_Serial`) REFERENCES Requested_Books(Serial)
 );

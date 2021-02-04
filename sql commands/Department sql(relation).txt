@@ -1,6 +1,6 @@
 CREATE TABLE `Department` (
-  `DeptCode` INT NOT NULL,
-  PRIMARY KEY (DeptCode)
+  `Department_Code` INT NOT NULL,
+  PRIMARY KEY (Department_Code)
 );
 
 INSERT INTO Department VALUES
