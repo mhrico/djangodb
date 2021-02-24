@@ -5,5 +5,5 @@ CREATE TABLE `Issued_Books` (
   `Date_Returned` DATE,
   `Status` Varchar(50),
   PRIMARY KEY (Serial),
-  FOREIGN KEY (`Requested_Serial`) REFERENCES Requested_Books(Serial)
+  FOREIGN KEY (`Requested_Serial`) REFERENCES Requested_Books(Requested_Serial)
 );

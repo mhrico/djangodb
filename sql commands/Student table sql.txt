@@ -4,7 +4,9 @@ CREATE TABLE IF NOT EXISTS `Student` (
 `Number` VARCHAR(14) NULL,
 `Email` VARCHAR(100) NULL,
 `Session` VARCHAR(7) NULL,
-PRIMARY KEY (Roll)
+`Department_Code` INT NOT NULL,
+PRIMARY KEY (Roll),
+FOREIGN KEY (Department_Code) REFERENCES Department(Department_Code)
 );
 
 INSERT INTO Student VALUES
