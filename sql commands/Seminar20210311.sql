@@ -125,7 +125,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$216000$Vyekzspv1lZK$EP+N15yqM8715IgysD+k3edQVJkCu2tX6vPE51wUSXg=','2021-02-04 17:24:51.691072',1,'admin','','','',1,1,'2021-02-04 17:24:38.286207');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$216000$Vyekzspv1lZK$EP+N15yqM8715IgysD+k3edQVJkCu2tX6vPE51wUSXg=','2021-03-11 14:58:21.406582',1,'admin','','','',1,1,'2021-02-04 17:24:38.286207');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,6 +223,7 @@ DROP TABLE IF EXISTS `department`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `department` (
   `Department_Code` int NOT NULL,
+  `Department_Name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Department_Code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -233,7 +234,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` VALUES (76);
+INSERT INTO `department` VALUES (76,'Computer Science and Engineering');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,7 +260,7 @@ CREATE TABLE `django_admin_log` (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
   CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,7 +269,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2021-02-04 17:28:53.168760','1','RequestedBooks object (1)',1,'[{\"added\": {}}]',11,1),(2,'2021-02-04 17:57:14.118796','1','RequestedBooks object (1)',1,'[{\"added\": {}}]',11,1),(3,'2021-02-04 18:55:34.140157','1','IssuedBooks object (1)',1,'[{\"added\": {}}]',10,1);
+INSERT INTO `django_admin_log` VALUES (1,'2021-02-04 17:28:53.168760','1','RequestedBooks object (1)',1,'[{\"added\": {}}]',11,1),(2,'2021-02-04 17:57:14.118796','1','RequestedBooks object (1)',1,'[{\"added\": {}}]',11,1),(3,'2021-02-04 18:55:34.140157','1','IssuedBooks object (1)',1,'[{\"added\": {}}]',10,1),(4,'2021-03-11 14:30:27.963150','1','[1] 1611176112',1,'[{\"added\": {}}]',11,1),(5,'2021-03-11 14:30:39.601131','1','[1] 1611176112',1,'[{\"added\": {}}]',10,1),(6,'2021-03-11 15:23:52.237000','1','[1] 1611176112 2021-03-16',2,'[{\"changed\": {\"fields\": [\"Date to return\"]}}]',10,1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -346,7 +347,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('98f876u4lcz2wv7vsweiiqa43fs9mply','.eJxVjEEOwiAQRe_C2pABSgGX7j0DmWFAqoYmpV0Z765NutDtf-_9l4i4rTVuPS9xYnEWSpx-N8L0yG0HfMd2m2Wa27pMJHdFHrTL68z5eTncv4OKvX5r1KCzMp7ZqeACaAILulhrBgxISilvGXygos0AMOqA3qUC5FMwPBrx_gCxRTah:1l7iN9:-tfsXHuFyo9_w54eB4vx2BMwy8GZBE0m0HvFHoKKDOo','2021-02-18 17:24:51.695912');
+INSERT INTO `django_session` VALUES ('7lg946vjvvbfeqlagaet3kcwrhjqw50k','.eJxVjEEOwiAQRe_C2pABSgGX7j0DmWFAqoYmpV0Z765NutDtf-_9l4i4rTVuPS9xYnEWSpx-N8L0yG0HfMd2m2Wa27pMJHdFHrTL68z5eTncv4OKvX5r1KCzMp7ZqeACaAILulhrBgxISilvGXygos0AMOqA3qUC5FMwPBrx_gCxRTah:1lKMK3:def6AMxjooH7biP5ePAGKEsvjWT80OddUzZ5EGOQsyY','2021-03-25 14:29:55.801028'),('98f876u4lcz2wv7vsweiiqa43fs9mply','.eJxVjEEOwiAQRe_C2pABSgGX7j0DmWFAqoYmpV0Z765NutDtf-_9l4i4rTVuPS9xYnEWSpx-N8L0yG0HfMd2m2Wa27pMJHdFHrTL68z5eTncv4OKvX5r1KCzMp7ZqeACaAILulhrBgxISilvGXygos0AMOqA3qUC5FMwPBrx_gCxRTah:1l7iN9:-tfsXHuFyo9_w54eB4vx2BMwy8GZBE0m0HvFHoKKDOo','2021-02-18 17:24:51.695912'),('r0w1wdtcgbbakfh4shi6u5riztc02qwy','.eJxVjEEOwiAQRe_C2pABSgGX7j0DmWFAqoYmpV0Z765NutDtf-_9l4i4rTVuPS9xYnEWSpx-N8L0yG0HfMd2m2Wa27pMJHdFHrTL68z5eTncv4OKvX5r1KCzMp7ZqeACaAILulhrBgxISilvGXygos0AMOqA3qUC5FMwPBrx_gCxRTah:1lKMlZ:hMTlWsckeW2zydyXbYjx1WGShNUOEAs5ArIRripkvlQ','2021-03-25 14:58:21.409574');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,11 +362,12 @@ CREATE TABLE `issued_books` (
   `Serial` int NOT NULL AUTO_INCREMENT,
   `Requested_Serial` int NOT NULL,
   `Date_Taken` date DEFAULT NULL,
+  `Date_to_Return` date DEFAULT NULL,
   `Date_Returned` date DEFAULT NULL,
   `Status` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Serial`),
   KEY `Requested_Serial` (`Requested_Serial`),
-  CONSTRAINT `issued_books_ibfk_1` FOREIGN KEY (`Requested_Serial`) REFERENCES `requested_books` (`Serial`)
+  CONSTRAINT `issued_books_ibfk_1` FOREIGN KEY (`Requested_Serial`) REFERENCES `requested_books` (`Requested_Serial`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -375,7 +377,7 @@ CREATE TABLE `issued_books` (
 
 LOCK TABLES `issued_books` WRITE;
 /*!40000 ALTER TABLE `issued_books` DISABLE KEYS */;
-INSERT INTO `issued_books` VALUES (1,1,'2021-02-04','2021-02-04','ok');
+INSERT INTO `issued_books` VALUES (1,1,'2021-03-11','2021-03-16','2021-03-11','boness');
 /*!40000 ALTER TABLE `issued_books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -387,10 +389,10 @@ DROP TABLE IF EXISTS `requested_books`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `requested_books` (
-  `Serial` int NOT NULL AUTO_INCREMENT,
+  `Requested_Serial` int NOT NULL AUTO_INCREMENT,
   `Roll` varchar(12) NOT NULL,
   `Book_Serial` int NOT NULL,
-  PRIMARY KEY (`Serial`),
+  PRIMARY KEY (`Requested_Serial`),
   KEY `Roll` (`Roll`),
   KEY `Book_Serial` (`Book_Serial`),
   CONSTRAINT `requested_books_ibfk_1` FOREIGN KEY (`Roll`) REFERENCES `student` (`Roll`),
@@ -404,7 +406,7 @@ CREATE TABLE `requested_books` (
 
 LOCK TABLES `requested_books` WRITE;
 /*!40000 ALTER TABLE `requested_books` DISABLE KEYS */;
-INSERT INTO `requested_books` VALUES (1,'1611176112',4);
+INSERT INTO `requested_books` VALUES (1,'1611176112',1);
 /*!40000 ALTER TABLE `requested_books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -421,7 +423,10 @@ CREATE TABLE `student` (
   `Number` varchar(14) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
   `Session` varchar(7) DEFAULT NULL,
-  PRIMARY KEY (`Roll`)
+  `Department_Code` int NOT NULL,
+  PRIMARY KEY (`Roll`),
+  KEY `Department_Code` (`Department_Code`),
+  CONSTRAINT `student_ibfk_1` FOREIGN KEY (`Department_Code`) REFERENCES `department` (`Department_Code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -431,7 +436,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES ('','Hassan Shahriar','','','2016-17'),('1611176112','Bappi Kumar','+8801774275615','bappikumarcseru@gmail.com','2015-16'),('1710276115','Mahbubur Rahman Taj','+8801710089902','mahburrahman30@gmail.com','2016-17'),('1710276139','Md. Nahid Hassan','+8801521416132','nahid.cseru@gmail.com','2016-17'),('1710476105','Md. Julfiker Ali','','julfikercseru@gmail.com','2016-17'),('1710576131','Minhajul Abeden','+8801766211372','minhajulabeden9097@gmail.com','2016-17'),('1710776108','Devit Chandra Roy','+8801762739522','devitroy15@gmail.com','2016-17'),('1710876122','Asif Himu','+8801835921753','asifbinkabircse@gmail.com','2016-17'),('1810176102','Zaki MD. Raihan','+8801952772817','zakizmr426@gmail.com','2017-18'),('1810276103','MD. Meem Mursalin Chowdhury','+8801787829148','mchowdhury244@gmail.com','2017-18'),('1810276116','MD. Jewel Rana','+8801703613322','mdjewelrana26278@gmail.com','2017-18'),('1810276128','Zahirul Isalm joy','+8801733850321','zahiruljoy275@gmail.com','2017-18'),('1810276140','Humayun Ahmad Rajib','+8801796742200','humayun.ahmad.rajib@gmail.com','2017-18'),('1810376106','MD. Ashifujjaman Rafi','+8801764877601','ashifujjman@gmail.com','2017-18'),('1810376132','Roni Roy','+8801764763446','ronirucse1718@gmail.com','2017-18'),('1810476110','Jahid Hasan','+8801705594771','jahidcseru1998@gmail.com','2017-18'),('1810476122','Molla Mohammad Ibrahim','+8801767603856','mmibrahim.cseru@gmail.com','2017-18'),('1810476137','MD. Aminul Islam','+8801719119148','m.aminulislambulbul@gmail.com','2017-18'),('1810476144','Monirul Islam','+8801537405102','shanto4045@gmail.com','2017-18'),('1810576105','Sahruzzaman Reyad','+8801952989737','sahruzzaman01@gmail.com','2017-18'),('1810576118','MD.Abdulla Al Mamun','+8801890999769','mamun.cseian@gmail.com','2017-18'),('1810576130','Al-amin Kawsar','+8801724116729','alaminkawsar8643@gmail.com','2017-18'),('1810576141','Abdur Rahim Sheikh','+8801778112915','abdur6552@gmail.com','2017-18'),('1810676109','MD. Sayem Abedin Sikto','+8801992526955','sayemabedin.bd@gmail.com','2017-18'),('1810676121','MD.Al Shahria','+8801737119925','shahriarcse26@gmail.com','2017-18'),('1810676124','Mohammad Hasibul Hasan','+8801720646828','hasibulfor@gmail.com','2017-18'),('1810676134','Shahadat Hossain','+8801862792908','mdshahadathossain5453@gmail.com','2017-18'),('1810776113','MD.Harun Or Rashid','+8801790362665','harunru71@gmail.com','2017-18'),('1810776125','Fahim Faysal Nirob','+8801792357458','fahimn56@gmail.com','2017-18'),('1810876111','Rakibul Islam','+8801796443896','rakibul221b@gmail.com','2017-18'),('1810876123','MD. Shojib mia','+8801883799528','shojibcse528@gmail.com','2017-18'),('1810876139','MD. Farhad Hosen Rony','+8801703508257','farhadrony228@gmail.com','2017-18'),('1810876145','Jahirul Islam','+8801952074169','mdjahirul495@gmail.com','2017-18'),('1810876146','MD. Rana Miah','+8801634895788','rana.cse333@gmail.com','2017-18'),('1810976101','Syed Rafiul Kabir','+8801959776747','rafiulKabir01.rucse@gmail.com','2017-18'),('1810976114','MD. Mehedi Hasan','+8801795003798','mehedi.rucse@gmail.com','2017-18'),('1810976126','MD. Shahriar Rahman Shaon','+8801717214430','shaon463@gmail.com','2017-18'),('1811076104','Sajeeb Chakraborty','+8801824072334','sajeebchakraborty.cse2000@gmail.com','2017-18'),('1811076117','MD.Asibul Hasan Shanto','+8801767191651','asibulhasan.rucse.18@gmail.com','2017-18'),('1811076129','Pijush Barai','+8801786584287','pijushbarai1@gmail.com','2017-18'),('1811176107','Golam Mostafa Shuvo','+8801843177051','gm.shuvo.ru.cse@gmail.com','2017-18'),('1811176120','MD. Rifat Hosen','+8801969068228','rifathosan01@gmail.com','2017-18'),('1811176133','MD. Al-amin','+8801792945973','alamin.cse.ru2018@gmail.com','2017-18'),('1811176143','Khairul Bashar','+8801774243462','khairulbashar24853@gmail.com','2017-18'),('1811176149','Mehedi Hasan Rico','+8801521119827','mhrico2@gmail.com','2017-18'),('1812076108','Umme Habiba Rea','+8801780193923','rea.ru18@gmail.com','2017-18'),('1812076138','Prithu Rani Roy','+8801722344330','prithuroy999@gmail.com','2017-18'),('1812176135','Farhin Mashiat Mayabee','+8801737017820','f.m.maya833@gmail.com','2017-18'),('1812476136','Umme Farhana','+8801798947524','ummefarhana7246@gmail.com','2017-18'),('1812576131','Bobita Rani Biswas','+8801927167005','bobibiswas06@gmail.com','2017-18'),('1812576142','Umme Salma Rumi','+8801701565609','salmarumi06@gmail.com','2017-18');
+INSERT INTO `student` VALUES ('','Hassan Shahriar','','','2016-17',76),('1611176112','Bappi Kumar','+8801774275615','bappikumarcseru@gmail.com','2015-16',76),('1710276115','Mahbubur Rahman Taj','+8801710089902','mahburrahman30@gmail.com','2016-17',76),('1710276139','Md. Nahid Hassan','+8801521416132','nahid.cseru@gmail.com','2016-17',76),('1710476105','Md. Julfiker Ali','','julfikercseru@gmail.com','2016-17',76),('1710576131','Minhajul Abeden','+8801766211372','minhajulabeden9097@gmail.com','2016-17',76),('1710776108','Devit Chandra Roy','+8801762739522','devitroy15@gmail.com','2016-17',76),('1710876122','Asif Himu','+8801835921753','asifbinkabircse@gmail.com','2016-17',76),('1810176102','Zaki MD. Raihan','+8801952772817','zakizmr426@gmail.com','2017-18',76),('1810276103','MD. Meem Mursalin Chowdhury','+8801787829148','mchowdhury244@gmail.com','2017-18',76),('1810276116','MD. Jewel Rana','+8801703613322','mdjewelrana26278@gmail.com','2017-18',76),('1810276128','Zahirul Isalm joy','+8801733850321','zahiruljoy275@gmail.com','2017-18',76),('1810276140','Humayun Ahmad Rajib','+8801796742200','humayun.ahmad.rajib@gmail.com','2017-18',76),('1810376106','MD. Ashifujjaman Rafi','+8801764877601','ashifujjman@gmail.com','2017-18',76),('1810376132','Roni Roy','+8801764763446','ronirucse1718@gmail.com','2017-18',76),('1810476110','Jahid Hasan','+8801705594771','jahidcseru1998@gmail.com','2017-18',76),('1810476122','Molla Mohammad Ibrahim','+8801767603856','mmibrahim.cseru@gmail.com','2017-18',76),('1810476137','MD. Aminul Islam','+8801719119148','m.aminulislambulbul@gmail.com','2017-18',76),('1810476144','Monirul Islam','+8801537405102','shanto4045@gmail.com','2017-18',76),('1810576105','Sahruzzaman Reyad','+8801952989737','sahruzzaman01@gmail.com','2017-18',76),('1810576118','MD.Abdulla Al Mamun','+8801890999769','mamun.cseian@gmail.com','2017-18',76),('1810576130','Al-amin Kawsar','+8801724116729','alaminkawsar8643@gmail.com','2017-18',76),('1810576141','Abdur Rahim Sheikh','+8801778112915','abdur6552@gmail.com','2017-18',76),('1810676109','MD. Sayem Abedin Sikto','+8801992526955','sayemabedin.bd@gmail.com','2017-18',76),('1810676121','MD.Al Shahria','+8801737119925','shahriarcse26@gmail.com','2017-18',76),('1810676124','Mohammad Hasibul Hasan','+8801720646828','hasibulfor@gmail.com','2017-18',76),('1810676134','Shahadat Hossain','+8801862792908','mdshahadathossain5453@gmail.com','2017-18',76),('1810776113','MD.Harun Or Rashid','+8801790362665','harunru71@gmail.com','2017-18',76),('1810776125','Fahim Faysal Nirob','+8801792357458','fahimn56@gmail.com','2017-18',76),('1810876111','Rakibul Islam','+8801796443896','rakibul221b@gmail.com','2017-18',76),('1810876123','MD. Shojib mia','+8801883799528','shojibcse528@gmail.com','2017-18',76),('1810876139','MD. Farhad Hosen Rony','+8801703508257','farhadrony228@gmail.com','2017-18',76),('1810876145','Jahirul Islam','+8801952074169','mdjahirul495@gmail.com','2017-18',76),('1810876146','MD. Rana Miah','+8801634895788','rana.cse333@gmail.com','2017-18',76),('1810976101','Syed Rafiul Kabir','+8801959776747','rafiulKabir01.rucse@gmail.com','2017-18',76),('1810976114','MD. Mehedi Hasan','+8801795003798','mehedi.rucse@gmail.com','2017-18',76),('1810976126','MD. Shahriar Rahman Shaon','+8801717214430','shaon463@gmail.com','2017-18',76),('1811076104','Sajeeb Chakraborty','+8801824072334','sajeebchakraborty.cse2000@gmail.com','2017-18',76),('1811076117','MD.Asibul Hasan Shanto','+8801767191651','asibulhasan.rucse.18@gmail.com','2017-18',76),('1811076129','Pijush Barai','+8801786584287','pijushbarai1@gmail.com','2017-18',76),('1811176107','Golam Mostafa Shuvo','+8801843177051','gm.shuvo.ru.cse@gmail.com','2017-18',76),('1811176120','MD. Rifat Hosen','+8801969068228','rifathosan01@gmail.com','2017-18',76),('1811176133','MD. Al-amin','+8801792945973','alamin.cse.ru2018@gmail.com','2017-18',76),('1811176143','Khairul Bashar','+8801774243462','khairulbashar24853@gmail.com','2017-18',76),('1811176149','Mehedi Hasan Rico','+8801521119827','mhrico2@gmail.com','2017-18',76),('1812076108','Umme Habiba Rea','+8801780193923','rea.ru18@gmail.com','2017-18',76),('1812076138','Prithu Rani Roy','+8801722344330','prithuroy999@gmail.com','2017-18',76),('1812176135','Farhin Mashiat Mayabee','+8801737017820','f.m.maya833@gmail.com','2017-18',76),('1812476136','Umme Farhana','+8801798947524','ummefarhana7246@gmail.com','2017-18',76),('1812576131','Bobita Rani Biswas','+8801927167005','bobibiswas06@gmail.com','2017-18',76),('1812576142','Umme Salma Rumi','+8801701565609','salmarumi06@gmail.com','2017-18',76);
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -444,4 +449,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-05  1:05:26
+-- Dump completed on 2021-03-11 21:30:55

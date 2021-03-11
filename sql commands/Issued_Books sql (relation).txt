@@ -2,6 +2,7 @@ CREATE TABLE `Issued_Books` (
   `Serial` int NOT NULL AUTO_INCREMENT,
   `Requested_Serial` int NOT NULL,
   `Date_Taken` DATE,
+  `Date_to_Return` DATE,
   `Date_Returned` DATE,
   `Status` Varchar(50),
   PRIMARY KEY (Serial),

@@ -1,7 +1,8 @@
 CREATE TABLE `Department` (
   `Department_Code` INT NOT NULL,
+  `Department_Name` VARCHAR(100),
   PRIMARY KEY (Department_Code)
 );
 
 INSERT INTO Department VALUES
-(76);
+(76, 'Computer Science and Engineering');
