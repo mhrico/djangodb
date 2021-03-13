@@ -51,12 +51,21 @@ class RequestedBooks(models.Model):
         return "[" + str(self.requested_serial) + "] " + str(self.roll) + " - " + str(self.book_serial)
 
 class IssuedBooks(models.Model):
+    statuses = (
+    ('Approved', 'Approved'),
+    ('Rejected', 'Rejected'),
+    ('Taken', 'Taken'),
+    ('Returned', 'Returned'),
+    ('Overdue', 'Overdue')
+    )
+
     serial = models.AutoField(db_column='Serial', primary_key=True)  # Field name made lowercase.
     requested_serial = models.ForeignKey('RequestedBooks', models.DO_NOTHING, db_column='Requested_Serial')  # Field name made lowercase.
     date_taken = models.DateField(db_column='Date_Taken', blank=True, null=True)  # Field name made lowercase.
     date_to_return = models.DateField(db_column='Date_to_Return', blank=True, null=True)  # Field name made lowercase.
     date_returned = models.DateField(db_column='Date_Returned', blank=True, null=True)  # Field name made lowercase.
-    status = models.CharField(db_column='Status', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    status = models.CharField(max_length=8, blank=True, null=True, choices=statuses)
+
 
 
     class Meta:
