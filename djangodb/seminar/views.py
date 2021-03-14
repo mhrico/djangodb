@@ -11,8 +11,14 @@ def studentsignup(request):
 def studentlogin(request):
     return render(request, 'studentlogin.html', {})
 
+def studentlanding(request):
+    return render(request, 'studentlanding.html', {})
+
 def librariansignup(request):
     return render(request, 'librariansignup.html', {})
 
 def librarianlogin(request):
     return render(request, 'librarianlogin.html', {})
+
+def librarianlanding(request):
+    return render(request, 'librarianlanding.html', {})
