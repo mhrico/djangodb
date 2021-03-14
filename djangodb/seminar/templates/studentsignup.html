@@ -2,21 +2,34 @@
 {% block content %}
     <h1>Student Sign Up Area</h1>
 </br>
-    <form>
+    <form method="POST" action="">
+      {% csrf_token %}
         <div class="mb-3">
-            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Roll">
+         Roll: {{userform.username}}
         </div>
         <div class="mb-3">
-            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Name">
+         Confirm Roll: {{studentdataform.roll}}
+      </div>
+        <div class="mb-3">
+         Name: {{studentdataform.name}}
         </div>
         <div class="mb-3">
-            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Contact Number">
+         Contanct Number: {{studentdataform.number}}
         </div>
         <div class="mb-3">
-          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email Address">
+         Email: {{userform.email}}
         </div>
         <div class="mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+         Confirm Email: {{studentdataform.email}}
+        </div>
+        <div class="mb-3">
+         Department: {{studentdataform.department_code}}
+        </div>
+        <div class="mb-3">
+         Password {{userform.password1}}
+        </div>
+        <div class="mb-3">
+         Confirm Password: {{userform.password2}}
         </div>
         <button type="submit" class="btn btn-primary">Sign Up</button>
       </form>
