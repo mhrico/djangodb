@@ -4,20 +4,21 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 
 from .models import Student
-from .forms import StudentDataForm, CreateUserForm
+from .forms import CreateUserForm, StudentDataForm 
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html', {})
 
 def studentsignup(request):
-    userform = UserCreationForm()
+    userform = CreateUserForm()
     studentdataform = StudentDataForm()
 
     if request.method == 'POST':
             userform = CreateUserForm(request.POST)
             studentdataform = StudentDataForm(request.POST)
             if userform.is_valid() and studentdataform.is_valid():
+                
                 user = userform.save()
                 user.set_password(user.password)
                 user.save()
