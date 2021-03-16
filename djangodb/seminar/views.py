@@ -23,6 +23,7 @@ def studentsignup(request):
                 user.save()
 
                 data=studentdataform.save(commit=False)
+                data.email = user.email
                 data.user=user
                 data.save()
 
