@@ -52,6 +52,7 @@ def studentlogin(request):
     return render(request, 'studentlogin.html', {})
 
 def logoutuser(request):
+    logout(request)
     return redirect('home')
 
 def studentlanding(request):
