@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 
@@ -20,20 +22,33 @@ def studentsignup(request):
             if userform.is_valid() and studentdataform.is_valid():
                 
                 user = userform.save()
-                user.set_password(user.password)
+                # user.set_password(user.password)
                 user.save()
 
                 data=studentdataform.save(commit=False)
                 data.email = user.email
-                data.user=user
                 data.save()
 
                 my_student_group = Group.objects.get_or_create(name='STUDENT')
                 my_student_group[0].user_set.add(user)
 
+                messages.success(request, 'Account was created for ' + user.username)
+                return redirect('studentlogin')
+
     return render(request, 'studentsignup.html', {'userform': userform, 'studentdataform': studentdataform})
 
 def studentlogin(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('studentlanding')
+        else:
+            messages.info(request, 'Username or password is incorrect')
+
     return render(request, 'studentlogin.html', {})
 
 def studentlanding(request):
