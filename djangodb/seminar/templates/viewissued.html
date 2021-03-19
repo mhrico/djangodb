@@ -3,4 +3,12 @@
 
 {% block content %}
 View Issued Books
+
+{% for item in all %}
+    <p>{{item.requested_serial.roll}}</p>
+    
+{% endfor %}
+
+<!-- <p>{{user}}</p> -->
+
 {% endblock %}

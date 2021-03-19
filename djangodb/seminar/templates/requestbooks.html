@@ -3,4 +3,12 @@
 
 {% block content %}
 Request Books Here
+
+{% for item in all %}
+    <p>{{item}}</p>
+    
+{% endfor %}
+
+<!-- <p>{{all.roll.roll}}</p> -->
+
 {% endblock %}

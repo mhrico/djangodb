@@ -6,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 
 from .models import Student
+from .models import IssuedBooks
+from .models import RequestedBooks
 from .forms import CreateUserForm, StudentDataForm 
 
 # Create your views here.
@@ -94,7 +96,17 @@ def librarianlanding(request):
     return render(request, 'librarianlanding.html', {})
 
 def requestbooks(request):
-    return render(request, 'requestbooks.html', {})
+    requested_all_data = RequestedBooks.objects.all()
+    for items in requested_all_data:
+        requested_all_things = RequestedBooks.objects.raw(''' INSERT INTO requested_books
+                                                VALUES (null, item.roll, item.book_serial); ''')
+    
+    return render(request, 'requestbooks.html', {'all': requested_all_data})
 
 def viewissued(request):
-    return render(request, 'viewissued.html', {})
+    user = request.user
+    all_things = IssuedBooks.objects.raw('''SELECT *
+                            FROM issued_books
+                            INNER JOIN requested_books ON issued_books.requested_serial = requested_books.requested_serial;''')
+    
+    return render(request, 'viewissued.html', {'all': all_things, 'user': user})
