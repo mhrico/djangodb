@@ -51,14 +51,49 @@ def studentlogin(request):
 
     return render(request, 'studentlogin.html', {})
 
+def logoutuser(request):
+    return redirect('home')
+
 def studentlanding(request):
     return render(request, 'studentlanding.html', {})
 
 def librariansignup(request):
-    return render(request, 'librariansignup.html', {})
+    userform = CreateUserForm()
+
+    if request.method == 'POST':
+            userform = CreateUserForm(request.POST)
+            if userform.is_valid():
+                
+                user = userform.save()
+                # user.set_password(user.password)
+                user.save()
+
+                my_librarian_group = Group.objects.get_or_create(name='LIBRARIAN')
+                my_librarian_group[0].user_set.add(user)
+
+                messages.success(request, 'Account was created for ' + user.username)
+                return redirect('librarianlogin')
+    return render(request, 'librariansignup.html', {'userform': userform})
 
 def librarianlogin(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('librarianlanding')
+        else:
+            messages.info(request, 'Username or password is incorrect')
+
     return render(request, 'librarianlogin.html', {})
 
 def librarianlanding(request):
     return render(request, 'librarianlanding.html', {})
+
+def requestbooks(request):
+    return render(request, 'requestbooks.html', {})
+
+def viewissued(request):
+    return render(request, 'viewissued.html', {})
