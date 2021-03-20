@@ -16,6 +16,9 @@ urlpatterns = [
     path('librarianlogin', views.librarianlogin, name="librarianlogin"),
     path('librarianlanding', views.librarianlanding, name="librarianlanding"),
 
+    path('issuebooks', views.issuebooks, name="issuebooks"),
+    path('updateissues', views.updateissues, name="updateissues"),
+
     path('logoutuser', views.logoutuser, name="logoutuser"),
     
 ]

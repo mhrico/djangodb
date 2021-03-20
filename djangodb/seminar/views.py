@@ -51,12 +51,14 @@ def studentlogin(request):
 
     return render(request, 'studentlogin.html', {})
 
-def logoutuser(request):
-    logout(request)
-    return redirect('home')
-
 def studentlanding(request):
     return render(request, 'studentlanding.html', {})
+
+def requestbooks(request):
+    return render(request, 'requestbooks.html', {})
+
+def viewissued(request):
+    return render(request, 'viewissued.html', {})
 
 def librariansignup(request):
     userform = CreateUserForm()
@@ -93,8 +95,12 @@ def librarianlogin(request):
 def librarianlanding(request):
     return render(request, 'librarianlanding.html', {})
 
-def requestbooks(request):
-    return render(request, 'requestbooks.html', {})
+def issuebooks(request):
+    return render(request, 'issuebooks.html', {})
 
-def viewissued(request):
-    return render(request, 'viewissued.html', {})
+def updateissues(request):
+    return render(request, 'updateissues.html', {})
+
+def logoutuser(request):
+    logout(request)
+    return redirect('home')
