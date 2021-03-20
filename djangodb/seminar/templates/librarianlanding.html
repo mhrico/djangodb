@@ -1,6 +1,51 @@
-{% extends 'main.html' %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<style media="screen">
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.jumbotron{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.jumbotron h1{
+  text-align: center;
+}
 
 
-{% block content %}
-Hello Librarian!
-{% endblock %}
+</style>
+  </head>
+  <body>
+    {% include "librariannavbar.html" %}
+    <br>
+    <br>
+    <center><h3 style=" margin-bottom: 0px;"class = 'alert alert-success'>Librarian Area</h3></center>
+    <div class="jumbotron"   style="    margin-bottom: 0px;">
+        <h1 class="display-4">Welcome {{user.username}}</h1>
+        <div class="options" style="text-align:center">
+            <a href="issuebooks" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Issue Books</a><br><br>
+        </div>
+        <div class="options" style="text-align:center">
+        <a href="updateissues" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Updated Issued Books</a><br><br>
+        </div>
+    </div>
+
+  </body>
+</html>

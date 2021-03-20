@@ -2,14 +2,27 @@
 {% block content %}
     <h1>Librarian Sign Up Area</h1>
 </br>
-    <form>
+    <form method="POST" action="">
+      {% csrf_token %}
         <div class="mb-3">
-          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email Address">
+          Username: {{userform.username}}
         </div>
         <div class="mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          Email: {{userform.email}}
+        </div>
+        <div class="mb-3">
+          Password: {{userform.password1}}
+        </div>
+        <div class="mb-3">
+          Confirm Password: {{userform.password2}}
         </div>
         <button type="submit" class="btn btn-primary">Sign Up</button>
       </form>
+      
+      {{userform.errors}}
+      
+      <div class="mb-3">
+        Already have an account? <a href="{% url 'librarianlogin' %}">Login</a>
+      </div>
 
 {% endblock %}

@@ -2,14 +2,22 @@
 {% block content %}
     <h1>Student Login Area</h1>
 </br>
-    <form>
+    <form method="POST" action="">
+      {% csrf_token %}
         <div class="mb-3">
-          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email Address">
+          <input type="text" class="form-control" name="username" placeholder="Roll">
         </div>
         <div class="mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
       </form>
+
+      {% for message in messages%}
+        <br><p id="messages">{{message}}</p>
+      {% endfor %}
+      <div class="mb-3">
+        Don't have an account? <a href="{% url 'studentsignup' %}">Sign up</a>
+      </div>
 
 {% endblock %}
