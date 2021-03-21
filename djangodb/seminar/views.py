@@ -72,6 +72,7 @@ def requestbooks(request):
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
 def viewissued(request):
+    
     return render(request, 'viewissued.html', {})
 
 def librariansignup(request):

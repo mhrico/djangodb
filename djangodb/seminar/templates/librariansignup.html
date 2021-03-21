@@ -5,16 +5,16 @@
     <form method="POST" action="">
       {% csrf_token %}
         <div class="mb-3">
-          Username: {{userform.username}}
+         {{userform.username}}
         </div>
         <div class="mb-3">
-          Email: {{userform.email}}
+         {{userform.email}}
         </div>
         <div class="mb-3">
-          Password: {{userform.password1}}
+         {{userform.password1}}
         </div>
         <div class="mb-3">
-          Confirm Password: {{userform.password2}}
+         {{userform.password2}}
         </div>
         <button type="submit" class="btn btn-primary">Sign Up</button>
       </form>

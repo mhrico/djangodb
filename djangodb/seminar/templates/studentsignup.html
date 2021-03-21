@@ -5,28 +5,31 @@
     <form method="POST" action="">
       {% csrf_token %}
         <div class="mb-3">
-         Roll: {{userform.username}}
+         {{userform.username}}
         </div>
         <div class="mb-3">
-         Confirm Roll: {{studentdataform.roll}}
+         {{studentdataform.roll}}
       </div>
         <div class="mb-3">
-         Name: {{studentdataform.name}}
+         {{studentdataform.name}}
         </div>
         <div class="mb-3">
-         Contanct Number: {{studentdataform.number}}
+         {{studentdataform.number}}
         </div>
         <div class="mb-3">
-         Email: {{userform.email}}
+         {{userform.email}}
         </div>
         <div class="mb-3">
-         Department: {{studentdataform.department_code}}
+         {{studentdataform.department_code}}
         </div>
         <div class="mb-3">
-         Password {{userform.password1}}
+         {{studentdataform.session}}
         </div>
         <div class="mb-3">
-         Confirm Password: {{userform.password2}}
+         {{userform.password1}}
+        </div>
+        <div class="mb-3">
+         {{userform.password2}}
         </div>
         <button type="submit" class="btn btn-primary">Sign Up</button>
       </form>
