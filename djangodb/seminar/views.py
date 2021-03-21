@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
-from .models import Student
+from .models import Student, IssuedBooks
 from .forms import CreateUserForm, StudentDataForm 
 
 # Create your views here.
@@ -72,7 +72,8 @@ def requestbooks(request):
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
 def viewissued(request):
-    
+    student = Student.objects.filter(roll=request.user.username)
+    issuedbook = IssuedBooks.objects.filter(requested_serial__roll__roll__icontains=student[0].roll)
     return render(request, 'viewissued.html', {})
 
 def librariansignup(request):
