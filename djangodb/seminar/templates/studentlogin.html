@@ -1,8 +1,11 @@
 {% extends 'main.html' %}
+
 {% block content %}
-<center>
-<h1>Student Login Area</h1>
-</br>
+
+  {% include "studentnavbar.html" %}
+  <br>
+  <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>Student Login</h1></center>
+  <div class="jumbotron"   style="    margin-bottom: 0px;">
     <form method="POST" action="">
       {% csrf_token %}
         <div class="mb-3">
@@ -20,5 +23,6 @@
       <div class="mb-3">
         Don't have an account? <a href="{% url 'studentsignup' %}">Sign up</a>
       </div>
-</center>
+  </div>
+</body>
 {% endblock %}

@@ -1,7 +1,11 @@
 {% extends 'main.html' %}
+
 {% block content %}
-    <h1>Librarian Login Area</h1>
-</br>
+
+  {% include "librariannavbar.html" %}
+  <br>
+  <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>Librarian Login</h1></center>
+  <div class="jumbotron"   style="    margin-bottom: 0px;">
     <form method="POST" action="">
       {% csrf_token %}
         <div class="mb-3">
@@ -19,5 +23,6 @@
       <div class="mb-3">
         Don't have an account? <a href="{% url 'librariansignup' %}">Sign up</a>
       </div>
+</div>
 
 {% endblock %}
