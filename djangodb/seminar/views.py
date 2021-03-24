@@ -7,7 +7,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 from .models import Student, IssuedBooks
-from .forms import CreateUserForm, StudentDataForm 
+from .forms import CreateUserForm, StudentDataForm, RequestBooksForm
 
 # Create your views here.
 
@@ -67,7 +67,18 @@ def studentlanding(request):
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
 def requestbooks(request):
-    return render(request, 'requestbooks.html', {})
+    requestbooksform = RequestBooksForm()
+    student = Student.objects.filter(roll=request.user.username)
+    
+    if request.method == 'POST':
+        requestbooksform = RequestBooksForm(request.POST)
+        if requestbooksform.is_valid():
+            requestedbooks = requestbooksform.save(commit=False)
+            requestedbooks.roll = student[0]
+            requestedbooks.save()
+            messages.success(request, 'Book Requested')
+
+    return render(request, 'requestbooks.html', {'requestbooksform': requestbooksform})
 
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)

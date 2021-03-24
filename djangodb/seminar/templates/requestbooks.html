@@ -1,6 +1,22 @@
 {% extends 'main.html' %}
 
-
 {% block content %}
-Request Books Here
+
+<body>
+
+    {% include "studentnavbar.html" %}
+    <br>
+    <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>Request Books as {{user.get_username}}</h1></center>
+    <div class="jumbotron"   style="    margin-bottom: 0px;">
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ requestbooksform.book_serial}}
+            {% for message in messages%}
+                <br><p id="messages">{{message}}</p>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Request</button>
+        </form>
+        
+    </div>
 {% endblock %}

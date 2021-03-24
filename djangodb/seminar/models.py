@@ -40,7 +40,7 @@ class Books(models.Model):
 
 class RequestedBooks(models.Model):
     requested_serial = models.AutoField(db_column='Requested_Serial', primary_key=True)  # Field name made lowercase.
-    roll = models.ForeignKey('Student', models.DO_NOTHING, db_column='Roll')  # Field name made lowercase.
+    roll = models.ForeignKey('Student', models.DO_NOTHING, db_column='Roll', blank=True, null=True)  # Field name made lowercase.
     book_serial = models.ForeignKey(Books, models.DO_NOTHING, db_column='Book_Serial')  # Field name made lowercase.
 
     class Meta:

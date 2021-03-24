@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Student
+from .models import Student, RequestedBooks
 
 class CreateUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -26,5 +26,14 @@ class StudentDataForm(ModelForm):
             'number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact Number'}),
             'session': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Session: 20XX-XX'}),
             'department_code': forms.Select(attrs={'class':'form-select'}),      
+        }
+
+class RequestBooksForm(ModelForm):
+    class Meta:
+        model = RequestedBooks
+        fields = '__all__'
+        widgets = {
+            'roll': forms.Select(attrs={'class':'form-select'}),
+            'book_serial': forms.Select(attrs={'class':'form-select'})
         }
 
