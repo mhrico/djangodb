@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
 {% block content %}
-    <h1>Student Login Area</h1>
+<center>
+<h1>Student Login Area</h1>
 </br>
     <form method="POST" action="">
       {% csrf_token %}
@@ -19,5 +20,5 @@
       <div class="mb-3">
         Don't have an account? <a href="{% url 'studentsignup' %}">Sign up</a>
       </div>
-
+</center>
 {% endblock %}

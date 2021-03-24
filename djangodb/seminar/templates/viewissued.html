@@ -1,33 +1,39 @@
 {% extends 'main.html' %}
 
-
 {% block content %}
-Books Issued To {{user.get_username}}
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Book</th>
-      <th scope="col">Date Taken</th>
-      <th scope="col">Date To Return</th>
-      <th scope="col">Date Returned</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for issuedbook in issuedbooks  %}
-    <tr>
-      <th scope="row">{{issuedbook.serial}}</th>
-      <td>{{issuedbook.requested_serial.book_serial}}</td>
-      <td>{{issuedbook.date_taken}}</td>
-      <td>{{issuedbook.date_to_return}}</td>
-      <td>{{issuedbook.date_returned}}</td>
-      <td>{{issuedbook.status}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
 
-    <p></p>
+<body>
+
+    {% include "studentnavbar.html" %}
+    <br>
+    <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>Books Issued To {{user.get_username}}</h1></center>
+    <div class="jumbotron"   style="    margin-bottom: 0px;">
+        <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Book</th>
+            <th scope="col">Date Taken</th>
+            <th scope="col">Date To Return</th>
+            <th scope="col">Date Returned</th>
+            <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for issuedbook in issuedbooks  %}
+            <tr>
+            <th scope="row">{{issuedbook.serial}}</th>
+            <td>{{issuedbook.requested_serial.book_serial}}</td>
+            <td>{{issuedbook.date_taken}}</td>
+            <td>{{issuedbook.date_to_return}}</td>
+            <td>{{issuedbook.date_returned}}</td>
+            <td>{{issuedbook.status}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+</body>
 
 {% endblock %}

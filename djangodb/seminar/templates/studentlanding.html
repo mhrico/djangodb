@@ -1,51 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-<style media="screen">
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  border-radius: 35px;
-  font-size: 24px;
-  line-height: 1.33;
-}
+{% extends 'main.html' %}
 
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  padding: 6px 0px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.42857;
-}
+{% block content %}
 
-.jumbotron{
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.jumbotron h1{
-  text-align: center;
-}
+<body>
+  {% include "studentnavbar.html" %}
+  <br>
+  <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>Student Area</h1></center>
+  <div class="jumbotron"   style="    margin-bottom: 0px;">
+      <center><h1 class="display-4">Welcome {{user.username}}</h1></center>
+      <div class="options" style="text-align:center">
+          <a href="requestbooks" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Request Books</a><br><br>
+      </div>
+      <div class="options" style="text-align:center">
+      <a href="viewissued" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Books Issued To You</a><br><br>
+      </div>
+  </div>
+</body>
 
-
-</style>
-  </head>
-  <body>
-    {% include "studentnavbar.html" %}
-    <br>
-    <br>
-    <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>Student Area</h1></center>
-    <div class="jumbotron"   style="    margin-bottom: 0px;">
-        <h1 class="display-4">Welcome {{user.username}}</h1>
-        <div class="options" style="text-align:center">
-            <a href="requestbooks" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Request Books</a><br><br>
-        </div>
-        <div class="options" style="text-align:center">
-        <a href="viewissued" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Books Issued To You</a><br><br>
-        </div>
-    </div>
-
-  </body>
-</html>
+{% endblock %}
