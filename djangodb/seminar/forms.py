@@ -1,9 +1,9 @@
-from django.forms import ModelForm, MultiWidget, TextInput, PasswordInput, Select
+from django.forms import ModelForm, MultiWidget, TextInput, PasswordInput, Select, DateField, DateInput
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Student, RequestedBooks
+from .models import Student, RequestedBooks, IssuedBooks
 
 class CreateUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -35,5 +35,15 @@ class RequestBooksForm(ModelForm):
         widgets = {
             'roll': forms.Select(attrs={'class':'form-select'}),
             'book_serial': forms.Select(attrs={'class':'form-select'})
+        }
+
+class IssueBooksForm(ModelForm):
+    class Meta:
+        model = IssuedBooks
+        fields = '__all__'
+        widgets = {
+            'requested_serial': forms.Select(attrs={'class':'form-select'}),
+            'status': forms.Select(attrs={'class':'form-select'}),
+            'date_taken': DateInput(attrs={'type': 'date', 'class':'form-select'})
         }
 

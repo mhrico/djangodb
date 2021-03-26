@@ -6,8 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
-from .models import Student, IssuedBooks
-from .forms import CreateUserForm, StudentDataForm, RequestBooksForm
+from .models import Student, RequestedBooks, IssuedBooks
+from .forms import CreateUserForm, StudentDataForm, RequestBooksForm, IssueBooksForm
 
 # Create your views here.
 
@@ -128,7 +128,15 @@ def librarianlanding(request):
 @login_required(login_url='librarianlogin')
 @user_passes_test(is_librarian)
 def issuebooks(request):
-    return render(request, 'issuebooks.html', {})
+    issuebooksform = IssueBooksForm()
+
+    if request.method == 'POST':
+        issuebooksform = IssueBooksForm(request.POST)
+        if issuebooksform.is_valid():
+            issuebooksform.save()
+            messages.success(request, 'Book Issued')
+
+    return render(request, 'issuebooks.html', {'issuebooksform': issuebooksform})
 
 @login_required(login_url='librarianlogin')
 @user_passes_test(is_librarian)

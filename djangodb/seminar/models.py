@@ -73,4 +73,4 @@ class IssuedBooks(models.Model):
         db_table = 'issued_books'
         verbose_name_plural = "Issued Books"
     def __str__(self):
-        return str(self.requested_serial) + " - " + str(self.date_to_return)
+        return "[" + str(self.serial) + "] " + str(self.requested_serial) + " - " + str(self.date_to_return)
