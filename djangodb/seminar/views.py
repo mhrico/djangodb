@@ -140,9 +140,23 @@ def issuebooks(request):
 
 @login_required(login_url='librarianlogin')
 @user_passes_test(is_librarian)
-def updateissues(request):
+def viewissuesaslib(request):
     issuedbooks = IssuedBooks.objects.all()
-    return render(request, 'updateissues.html', {'issuedbooks': issuedbooks})
+    return render(request, 'viewissuesaslib.html', {'issuedbooks': issuedbooks})
+
+@login_required(login_url='librarianlogin')
+@user_passes_test(is_librarian)
+def updateissues(request, pk):
+    issuedbook = IssuedBooks.objects.get(serial=pk)
+    issuebooksform = IssueBooksForm(instance=issuedbook)
+
+    if request.method == 'POST':
+        issuebooksform = IssueBooksForm(request.POST, instance=issuedbook)
+        if issuebooksform.is_valid():
+            issuebooksform.save()
+            return redirect('viewissuesaslib')
+
+    return render(request, 'updateissues.html', {'issuedbook': issuedbook, 'issuebooksform': issuebooksform})
 
 def logoutuser(request):
     logout(request)
