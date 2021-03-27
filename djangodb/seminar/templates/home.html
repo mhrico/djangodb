@@ -1,6 +1,24 @@
 {% extends 'main.html' %}
 
-
 {% block content %}
-Hello Seminar!
+
+<body>
+  {% include "navbar.html" %}
+  <br>
+  <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>Welcome To The Online Seminar</h1></center>
+  <div class="jumbotron"   style="    margin-bottom: 0px;">
+      <center><h1 class="display-4">Librarian Area</h1></center>
+      <div class="options" style="text-align:center">
+        <a href="librariansignup" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Signup</a><br><br>
+        <a href="librarianlogin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a><br><br>
+      </div>
+      <hr>
+      <center><h1 class="display-4">Student Area</h1></center>
+      <div class="options" style="text-align:center">
+        <a href="studentsignup" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Signup</a><br><br>
+        <a href="studentlogin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a><br><br>
+      </div>
+  </div>
+</body>
+  
 {% endblock %}

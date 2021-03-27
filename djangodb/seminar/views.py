@@ -158,6 +158,16 @@ def updateissues(request, pk):
 
     return render(request, 'updateissues.html', {'issuedbook': issuedbook, 'issuebooksform': issuebooksform})
 
+@login_required(login_url='librarianlogin')
+@user_passes_test(is_librarian)
+def deleteissue(request, pk):
+    issuedbook = IssuedBooks.objects.get(serial=pk)
+    if request.method == 'POST':
+        issuedbook.delete()
+        return redirect('viewissuesaslib')
+        
+    return render(request, 'deleteissue.html', {'issuedbook': issuedbook})
+
 def logoutuser(request):
     logout(request)
     return redirect('home')

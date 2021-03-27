@@ -6,7 +6,7 @@
 
     {% include "librariannavbar.html" %}
     <br>
-    <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>Update or Delete Issued Books</h1></center>
+    <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>View or Edit Issued Books</h1></center>
     <div class="jumbotron"   style="    margin-bottom: 0px;">
         <table class="table table-hover">
         <thead class="thead-dark">
@@ -31,7 +31,10 @@
             <td>{{issuedbook.date_to_return}}</td>
             <td>{{issuedbook.date_returned}}</td>
             <td>{{issuedbook.status}}</td>
-            <td><a href="{% url 'updateissues' issuedbook.serial %}">Update</a> / <a href="/delete">Delete</a></td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'updateissues' issuedbook.serial %}">Update</a>
+                <a class="btn btn-danger" href="{% url 'deleteissue' issuedbook.serial %}">Delete</a>
+            </td>
             </tr>
             {% endfor %}
         </tbody>

@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<body>
+    {% include "librariannavbar.html" %}
+    <br>
+    <center><h1 style=" margin-bottom: 0px;"class = 'alert alert-success'>Delete Issued Book</h1></center>
+    <div class="jumbotron"   style="    margin-bottom: 0px;">
+        <p> Are you sure you want to delete {{issuedbook}}? </p>
+        <form method = "POST" action="{% url 'deleteissue' issuedbook.serial %}">
+            {% csrf_token %}
+            <a class="btn btn-secondary" href= "{% url 'viewissuesaslib' %}"> Cancel </a>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</body>
+
+{% endblock %}
