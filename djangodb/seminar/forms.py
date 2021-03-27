@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 
+from bootstrap_datepicker_plus import DatePickerInput
+
 from .models import Student, RequestedBooks, IssuedBooks
 
 class CreateUserForm(UserCreationForm):
@@ -44,6 +46,8 @@ class IssueBooksForm(ModelForm):
         widgets = {
             'requested_serial': forms.Select(attrs={'class':'form-select'}),
             'status': forms.Select(attrs={'class':'form-select'}),
-            'date_taken': DateInput(attrs={'type': 'date', 'class':'form-select'})
+            'date_taken': DatePickerInput(),
+            'date_to_return': DatePickerInput(),
+            'date_returned': DatePickerInput()
         }
 

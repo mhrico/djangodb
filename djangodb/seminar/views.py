@@ -141,7 +141,8 @@ def issuebooks(request):
 @login_required(login_url='librarianlogin')
 @user_passes_test(is_librarian)
 def updateissues(request):
-    return render(request, 'updateissues.html', {})
+    issuedbooks = IssuedBooks.objects.all()
+    return render(request, 'updateissues.html', {'issuedbooks': issuedbooks})
 
 def logoutuser(request):
     logout(request)

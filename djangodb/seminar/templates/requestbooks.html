@@ -11,7 +11,8 @@
 
         <form method="POST" action="">
             {% csrf_token %}
-            {{ requestbooksform.book_serial}}
+            <p>{{requestbooksform.book_serial.label}}:</p>
+            <p>{{ requestbooksform.book_serial}}</p>
             {% for message in messages%}
                 <br><p id="messages">{{message}}</p>
             {% endfor %}
